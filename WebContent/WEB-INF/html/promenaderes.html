@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- "PromenadeFormData"でバインドされたオブジェクトを取り出します -->
+<table th:object="${PromenadeFormData}">
+    <tr>
+        <td>私の名前は「<span style="color:blue;" th:text="*{user.myname}">ウルトラ花子</span>」です。</td>
+    </tr>
+    <tr>
+        <td>私の年齢は「<span style="color:blue;" th:text="*{user.age}">教えてあげない</span>」です。</td>
+    </tr>
+    <tr>
+        <td>私の電話番号は「<span style="color:blue;" th:text="*{user.phone}">教えてあげない</span>」です。</td>
+    </tr>
+    <tr>
+        <td>私のemailは「<span style="color:blue;" th:text="*{user.email}">教えてあげない</span>」です。</td>
+    </tr>
+    <tr>
+        <td>私の好きなものは「<span style="color:blue;" th:text="*{user.checkVal}">教えてあげない</span>」です。</td>
+    </tr>
+</table>
+</body>
+</html>

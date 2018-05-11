@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="./promenaderes.do" method="post">
+<table th:object="${PromenadeFormData}">
+    <tr>
+        <td>
+            あなたのお名前は？<input type="text" th:field="*{user.myname}" size="40" maxlength="40"/>
+            <span style="color:red;" th:if="${#fields.hasErrors('user.myname')}" th:errors="*{user.myname}">おいらは、すぷりんぐ太郎たじょ</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            あなたの年齢は？<input type="text" th:field="*{user.age}" size="10" maxlength="3"/>
+            <span style="color:red;" th:if="${#fields.hasErrors('user.age')}" th:errors="*{user.age}">教えてあげない</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            あなたの電話番号は？<input type="text" th:field="*{user.phone}" size="40" />
+            <span style="color:red;" th:if="${#fields.hasErrors('user.phone')}" th:errors="*{user.phone}">教えてあげない</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            あなたのemailは？　<input type="text" th:field="*{user.email}" size="60" />
+            <!-- 入力検証エラー時のメッセージ表示領域 -->
+            <span style="color:red;" th:if="${#fields.hasErrors('user.email')}" th:errors="*{user.email}">email</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            どれか好きなの選んでね?　
+            <input type="radio" th:field="*{checkVals}" value="酒"/>酒
+            <input type="radio" th:field="*{checkVals}" value="博打"/>博打
+            <input type="radio" th:field="*{checkVals}" value="女"/>女
+            <!-- 入力検証エラー時のメッセージ表示領域 -->
+            <span style="color:red;" th:if="${#fields.hasErrors('checkValsSelect')}" th:errors="*{checkValsSelect}">どれか選ばんか～ぃ！</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="submit" value="回答しちゃるけん" />
+        </td>
+    </tr>
+
+</table>
+</form>
+
+</body>
+</html>

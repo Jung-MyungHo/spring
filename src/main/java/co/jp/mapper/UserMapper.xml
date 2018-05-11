@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- User　Mapperインターフェースを指定する -->
+<mapper namespace="co.jp.mapper.UserMapper">
+
+    <!-- user情報を取得するSQL -->
+    <select id="getUser" parameterType="int" resultType="co.jp.model.dto.User">
+        Select * From raisin.tbluser Where userid = #{value}
+    </select>
+
+    <!-- user情報リストを取得するSQL -->
+    <select id="getUserList" resultType="co.jp.model.dto.User">
+        Select * From raisin.tbluser Order By userid
+    </select>
+
+    <!-- user情報追加 SQL -->
+    <insert id="insertNewUser" parameterType="co.jp.model.dto.User">
+        Insert into raisin.tbluser(
+          myname,age,phone,email,"checkVal"
+        )Values(
+          #{myname},#{age},#{phone},#{email},#{checkVal}
+        )
+    </insert>
+
+    <!-- User情報更新 SQL -->
+    <update id="updateUser" parameterType="co.jp.model.dto.User">
+        update raisin.tbluser set
+        myname = #{myname},
+        age = #{age},
+        phone = #{phone},
+        email = #{email},
+        "checkVal" = #{checkVal}
+        Where userid = #{userid}
+    </update>
+
+    <!-- User情報削除 SQL -->
+    <delete id="deleteUser" parameterType="int">
+        Delete From raisin.tbluser Where userid = #{value}
+    </delete>
+
+</mapper>
